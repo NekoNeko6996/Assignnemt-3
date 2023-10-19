@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nguyễn Hoàng Nam - A23030</title>
+</head>
+<body>
+    <div id="container">
+        <table border="1">
+            <caption>
+                <h2>Hoá Đơn</h2>
+            </caption>
+            <tr>
+                <th>Họ và tên bệnh nhân:</th>
+                <td>
+                    <p id="name"></p>
+                </td>
+            </tr>
+            <tr>
+                <th>Tuổi:</th>
+                <td>
+                    <p id="age"></p>
+                </td>
+            </tr>
+            <tr>
+                <th>Nhu cầu khám bệnh:</th>
+                <td>
+                    <p id="nc"></p>
+                </td>
+            </tr>
+            <tr>
+                <th>Số tiền phải trả</th>
+                <td>
+                    <p id="total"></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const nc_p = document.querySelector('#nc');
+        const name_p = document.querySelector('#name');
+        const age_p = document.querySelector('#age');
+        const total_p = document.querySelector('#total');
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const age = urlParams.get('age');
+        const total = urlParams.get('total_money');
+        
+
+        var nc = '';
+        var array = new Array(4);
+        array[0] = (urlParams.get('checkbox_tq'))? 'Khám tổng quát': null;
+        array[1] = (urlParams.get('checkbox_sa'))? 'Siêu âm' : null;
+        array[2] = (urlParams.get('checkbox_ns'))? 'Nội soi' : null;
+        array[3] = (urlParams.get('checkbox_xq'))? 'Chụp X-Quang' : null;
+        for(let count = 0; count < array.length; count++) {
+            if(array[count]) 
+                nc += (count != 3)? array[count] + ', ' : array[count] + '.';
+        }
+        name_p.textContent = name;
+        age_p.textContent = age;
+        nc_p.textContent = nc;
+        total_p.textContent = total + ' đồng';
+    </script>
+</body>
+</html>

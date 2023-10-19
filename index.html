@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Nguyễn Hoàng Nam - A23030</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>PHIẾU ĐĂNG KÍ KHÁM BỆNH</h1>
+        </header>
+        <section>
+            <form action="./bill/bill.html" method="get">
+                <table cellspacing="5">
+                    <tr>
+                        <td>Họ tên bệnh nhân:</td>
+                        <td>
+                            <input type="text" name="name" id="name-input" required maxlength="30" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tuổi:</td>
+                        <td>
+                            <input type="number" name="age" id="age-input" required min="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ:</td>
+                        <td>
+                            <textarea name="address" id="address-textarea" cols="35" rows="5" required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại:</td>
+                        <td>
+                            <input type="tel" name="phone-number" id="tell-input" pattern="[0-9]{10}" placeholder="10 số">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Đối tượng:</td>
+                        <td>
+                            <select name="doi-tuong" style="height: 30px;">
+                                <option value="0">Bình thường</option>    
+                                <option value="10">HS_SV</option>
+                                <option value="20">Thương binh</option>
+                                <option value="30">Hộ nghèo</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height: 162px;">Đăng kí khám bệnh:</td>
+                        <td id="check-td">
+                            <span>
+                                <input type="checkbox" name="checkbox_tq" id="checkbox1" class="checkbox" value="50000">
+                                <label for="checkbox1">Khám tổng quát 50.000 đồng</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" name="checkbox_sa" id="checkbox2" class="checkbox" value="60000">
+                                <label for="checkbox2">Siêu âm 60.000 đồng</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" name="checkbox_ns" id="checkbox3" class="checkbox" value="80000">
+                                <label for="checkbox3">Nội soi 80.000 đồng</label>
+                            </span>
+                            <span>
+                                <input type="checkbox" name="checkbox_xq" id="checkbox4" class="checkbox" value="70000">
+                                <label for="checkbox4">Chụp X-Quang 70.000 đồng</label>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="total-td">
+                            <button onclick="onCalculate(event)">Tính tổng tiền</button>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Số tiền phải trả:</td>
+                        <td>
+                            <input type="text" id="total" name="total_money" readonly>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <button onclick="onSubmit()" id="submit">Đồng ý</button>
+            <button onclick="onReset()" id="reset">Hủy bỏ</button>
+        </section>
+    </div>
+
+
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>

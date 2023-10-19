@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+table th{
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+table td {
+    padding-left: 20px;
+    padding-right: 20px;
+}
